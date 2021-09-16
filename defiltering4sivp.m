@@ -17,17 +17,12 @@ Pc = ys;
 
 for c=1:size(xs,3)
     yc = ys(:,:,c);
-    xc = xs(:,:,c);
-    
-    nys = norm(yc(:));
-    nxs = norm(xc(:));
     
     T = yc;
     S = yc;
     P = yc;
     
-    for n=1:maxiter
-        
+    for n=1:maxiter        
         ht = yc-f(T);
         hs = yc-f(S);
         hp = yc-f(P);
@@ -44,12 +39,6 @@ for c=1:size(xs,3)
         % Tao et al.
         T = T + ht;
         
-        te = norm(xc(:)-T(:))/nxs;
-        se = norm(xc(:)-S(:))/nxs;
-        pe = norm(xc(:)-P(:))/nxs;
-        
-        fprintf('%d %d %f %f %f\n',[c,n,te,se,pe]);
-        
     end
 
     Sc(:,:,c) = S;
@@ -59,3 +48,4 @@ end
 
 figure,imshow([xs,ys]),title('Initial and filtered image');
 figure,imshow([Tc,Sc,Pc]),title('T  S  P');
+

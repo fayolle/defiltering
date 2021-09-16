@@ -3,7 +3,7 @@ clear;
 clc; 
 
 
-xs = im2double(imread('building_roof.jpg'));
+xs = im2double(imread('barbara-face.png'));
 
 f = @(x) imbilatfilt(x,0.05,3);
 
@@ -14,6 +14,8 @@ maxiter = 10;
 Tc = ys;
 Sc = ys;
 Pc = ys;
+
+fprintf("Defiltering\n");
 
 for c=1:size(xs,3)
     yc = ys(:,:,c);

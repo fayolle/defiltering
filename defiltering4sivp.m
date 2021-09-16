@@ -1,6 +1,6 @@
-close all;
-clear all;
-clc;
+close all; 
+clear; 
+clc; 
 
 
 xs = im2double(imread('building_roof.jpg'));
@@ -51,9 +51,11 @@ for c=1:size(xs,3)
         fprintf('%d %d %f %f %f\n',[c,n,te,se,pe]);
         
     end
-    
-    Tc(:,:,c) = T;Pc(:,:,c) = P;Sc(:,:,c) = S;
+
+    Sc(:,:,c) = S;
+    Pc(:,:,c) = P;
+    Tc(:,:,c) = T;
 end
 
-figure,imshow([xs,ys]);
+figure,imshow([xs,ys]),title('Initial and filtered image');
 figure,imshow([Tc,Sc,Pc]),title('T  S  P');

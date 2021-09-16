@@ -55,7 +55,6 @@ for c=1:size(xs,3)
     Tc(:,:,c) = T;
     Pc(:,:,c) = P;
     Sc(:,:,c) = S;
-    
 end
 
 figure,imshow([xs,ys]);

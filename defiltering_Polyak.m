@@ -76,7 +76,7 @@ if (size(xs,1)~=1)
 end
 
 for i=1:max_iter
-    gradphi = f(xn+(ys-fxn))-f(xn-(ys-fxn))/2.0;
+    gradphi = (f(xn+(ys-fxn))-f(xn-(ys-fxn)))/2.0;
     
     lam = (norm(ysfxn(:)))^2 / (norm(gradphi(:)))^2;
     lam = min(lam, gammab);
